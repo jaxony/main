@@ -55,10 +55,20 @@ public class UiManager extends ComponentManager implements Ui {
             mainWindow = new MainWindow(primaryStage, config, prefs, logic);
             mainWindow.show(); //This should be called before creating other UI parts
             mainWindow.fillInnerParts();
+            initUserProfile();
 
         } catch (Throwable e) {
             logger.severe(StringUtil.getDetails(e));
             showFatalErrorDialogAndShutdown("Fatal error during initializing", e);
+        }
+    }
+
+    /**
+     * Initializes the user's profile with personal information.
+     */
+    private void initUserProfile() {
+        if (!logic.isUserProfileInitialized()) {
+            logger.info("User profile has not been initialized.");
         }
     }
 

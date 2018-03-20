@@ -54,4 +54,11 @@ public class LogicManager extends ComponentManager implements Logic {
     public ListElementPointer getHistorySnapshot() {
         return new ListElementPointer(history.getHistory());
     }
+
+    @Override
+    public boolean isUserProfileInitialized() {
+        return false;
+    }
+
+
 }
